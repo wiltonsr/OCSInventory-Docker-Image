@@ -5,8 +5,7 @@ echo "|   Setting Apache Server Name to '${APACHE_SERVER_NAME:-localhost}'"
 echo "+----------------------------------------------------------+"
 echo
 
-sed -ri -e "s!^#(ServerName)\s+\S+!\1 ${APACHE_SERVER_NAME:-localhost}:80!g" \
-    "/etc/apache2/apache2.conf"
+echo -e "ServerName ${APACHE_SERVER_NAME:-localhost}" >> "/etc/apache2/apache2.conf"
 
 # Remove temp files
 echo "+--------------------------------+"
